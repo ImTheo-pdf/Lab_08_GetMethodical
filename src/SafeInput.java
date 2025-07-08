@@ -136,5 +136,53 @@ public class SafeInput {
         return response;
     }
 
+    public static void prettyHeader(String msg) {
+        final int LINE_WIDTH = 60;
+        final int SIDE_STARS = 3;
+
+        // Line 1: Top border
+        for (int i = 0; i < LINE_WIDTH; i++) {
+            System.out.print("*");
+        }
+        System.out.println();
+
+        // Line 2: Centered message with 3 stars on each side
+        int spaceForMsg = LINE_WIDTH - 2 * SIDE_STARS;
+        int paddingTotal = spaceForMsg - msg.length();
+        int paddingLeft = paddingTotal / 2;
+        int paddingRight = paddingTotal - paddingLeft;
+
+        // Left stars
+        for (int i = 0; i < SIDE_STARS; i++) {
+            System.out.print("*");
+        }
+
+        // Left padding
+        for (int i = 0; i < paddingLeft; i++) {
+            System.out.print(" ");
+        }
+
+        // Message
+        System.out.print(msg);
+
+        // Right padding
+        for (int i = 0; i < paddingRight; i++) {
+            System.out.print(" ");
+        }
+
+        // Right stars
+        for (int i = 0; i < SIDE_STARS; i++) {
+            System.out.print("*");
+        }
+
+        System.out.println();
+
+        // Line 3: Bottom border
+        for (int i = 0; i < LINE_WIDTH; i++) {
+            System.out.print("*");
+        }
+        System.out.println();
+    }
+
 
 }
